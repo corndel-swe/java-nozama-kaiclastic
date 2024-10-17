@@ -1,5 +1,11 @@
 package com.corndel.nozama.exercises;
 
+import io.javalin.http.BadRequestResponse;
+import io.javalin.http.ForbiddenResponse;
+import io.javalin.http.UnauthorizedResponse;
+
+import java.util.Objects;
+
 public class D3E2 {
 
   public class Account {
@@ -8,6 +14,30 @@ public class D3E2 {
 
     @SuppressWarnings("unused")
     private String password;
+
+    public String getUsername() {
+      return username;
+    }
+
+    public void setUsername(String username) {
+      this.username = username;
+    }
+
+    public String getEmail() {
+      return email;
+    }
+
+    public void setEmail(String email) {
+      this.email = email;
+    }
+
+    public String getPassword() {
+      return password;
+    }
+
+    public void setPassword(String password) {
+      this.password = password;
+    }
 
     public Account(String username, String email, String password) {
       this.username = username;
@@ -29,13 +59,21 @@ public class D3E2 {
      */
     public void updateUsername(String newUsername, String passwordAttempt) throws Exception {
       // TODO: If newUsername is not given, throw a BadRequestResponse
-
+        if(newUsername == null){
+          throw new BadRequestResponse();
+        }
       // TODO: If passwordAttempt is not given, throw an UnauthorizedResponse
-
+      if(passwordAttempt == null){
+        throw new UnauthorizedResponse();
+      }
       // TODO: If passwordAttempt is given but not correct, throw a ForbiddenResponse
-
+      if(!Objects.equals(this.password, passwordAttempt)){
+        throw new ForbiddenResponse();
+      }
       // TODO: If newUsername is given and passwordAttempt is correct, update the
       // username
+              this.username = newUsername;
+
     }
   }
 }

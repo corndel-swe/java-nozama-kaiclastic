@@ -1,5 +1,4 @@
 package com.corndel.nozama.exercises;
-
 import io.javalin.Javalin;
 import io.javalin.http.Context;
 
@@ -19,22 +18,31 @@ public class D3E1 {
     app.put("/counter/increment", CounterController::increment);
     return app;
   }
+
+
 }
 
 class CounterController {
   /**
    * Responds with the current counter as a JSON object, e.g. { "count": 3 }.
    */
+
   public static void getCounter(Context ctx) {
     // TODO
+
+    ctx.json(D3E1.counter);
+
   }
 
   /**
    * Increases the counter by 1 and then responds with the count.
    */
-  public static void increment(Context ctx) {
+  public static void increment(Context ctx)  {
     // TODO
+      getCounter(ctx.json(D3E1.counter.increment()));
+
   }
+
 }
 
 class Counter {
@@ -51,4 +59,9 @@ class Counter {
   public void setCount(int count) {
     this.count = count;
   }
+  public int increment() {
+    count++;
+    return count;
+  }
 }
+

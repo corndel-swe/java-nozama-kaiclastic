@@ -1,11 +1,6 @@
 package com.corndel.nozama.exercises;
-
-import com.fasterxml.jackson.core.JsonProcessingException;
 import io.javalin.Javalin;
 import io.javalin.http.Context;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class D3E1 {
   // This is our counter:

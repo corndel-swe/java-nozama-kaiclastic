@@ -5,6 +5,7 @@ import io.javalin.http.ForbiddenResponse;
 import io.javalin.http.UnauthorizedResponse;
 
 import java.util.Objects;
+import static io.javalin.apibuilder.ApiBuilder.*;
 
 public class D3E2 {
 
